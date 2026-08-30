@@ -1,40 +1,55 @@
 {
   "name": "md-file-icons",
-  "version": "1.0.1",
-  "description": "material design file icons based on css",
+  "version": "2.0.0",
+  "description": "Material Design file icons based on CSS",
   "author": "Djamel Eddine Korei",
   "license": "MIT",
+  "type": "module",
   "main": "dist/md-file-icons.css",
-  "scripts": {
-    "build": "gulp build",
-    "watch": "gulp watch"
+  "style": "dist/md-file-icons.css",
+  "sass": "src/md-file-icons.scss",
+  "exports": {
+    ".": "./dist/md-file-icons.css",
+    "./css": "./dist/md-file-icons.css",
+    "./scss": "./src/md-file-icons.scss",
+    "./package.json": "./package.json"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "@fortawesome/fontawesome-free": ">=5.0.6",
-    "bootstrap": ">=4.0.0"
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode lib",
+    "build:site": "vite build --mode site",
+    "preview": "vite preview",
+    "watch": "vite build --mode lib --watch"
   },
   "devDependencies": {
-    "gulp-sass": "^4.0.2",
-    "gulp-cli": "^2.2.0",
-    "gulp": "^4.0.2"
+    "lightningcss": "^1.30.2",
+    "sass": "^1.83.0",
+    "vite": "^8.2.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/djamel-kr/md-file-icons.git"
-  },
-  "bugs": {
-    "url": "https://github.com/djamel-kr/md-file-icons/issues"
-  },
-  "homepage": "https://github.com/djamel-kr/md-file-icons#readme",
   "keywords": [
     "css",
+    "scss",
     "sass",
     "icon",
-    "fontawesome",
-    "bootstrap",
+    "icons",
+    "file-icon",
     "material-design",
-    "md",
-    "file"
-  ]
+    "md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djamelkorei/md-file-icons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/djamelkorei/md-file-icons/issues"
+  },
+  "homepage": "https://djamelkorei.github.io/md-file-icons/"
 }
