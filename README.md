@@ -35,6 +35,39 @@ Import the stylesheet, then add the `.md-file` class:
 <span class="md-file"><i class="fa-solid fa-music"></i></span>
 ```
 
+### File-type presets
+
+`.md-file-<ext>` sets the matching Material color and, when the element is left
+empty, renders an auto label:
+
+```html
+<span class="md-file md-file-pdf"></span>   <!-- red · "PDF"  -->
+<span class="md-file md-file-ts"></span>    <!-- blue · "TS"   -->
+<span class="md-file md-file-xlsx"></span>  <!-- green · "XLS"  -->
+```
+
+~75 extensions are covered (documents, code, media, archives, config). Put your
+own text inside to override the label. For anything not in the map, use
+`data-ext`:
+
+```html
+<span class="md-file" data-ext="rs"></span>
+```
+
+Extend or edit the map from SCSS via `$md-file-extensions`.
+
+### Runtime theming
+
+Every icon reads CSS custom properties, so you can retheme without recompiling:
+
+```css
+:root {
+  --md-file-bg: #222;      /* body color                */
+  --md-file-color: #eee;   /* label color               */
+  --md-file-fold: rgba(0, 0, 0, 0.35); /* folded corner  */
+}
+```
+
 ### Sizes
 
 `.md-file-sm` · default · `.md-file-lg` · `.md-file-xl`

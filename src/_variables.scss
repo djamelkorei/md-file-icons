@@ -60,3 +60,94 @@ $md-file-color: #fff !default;
 $md-file-font-weight: 500 !default;
 $md-file-background: #4b5066 !default;
 $md-file-box-shadow: 0.5px 1px 1px 0 rgba(0, 0, 0, 0.55) !default;
+
+// Folded top-right corner: tint of the flap and how deep the fold cuts in
+// (as a fraction of the icon's base ratio).
+$md-file-fold: rgba(0, 0, 0, 0.28) !default;
+$md-file-fold-depth: 0.6 !default;
+
+// Extension presets — `.md-file-<ext>` sets the background colour and, when the
+// element is left empty, renders an auto label. Each entry:
+//   "<ext>": ("color": <key of $md-colors>, "label": <up to 4 chars>)
+$md-file-extensions: (
+  // documents
+  "pdf":  ("color": "red",       "label": "PDF"),
+  "doc":  ("color": "blue",      "label": "DOC"),
+  "docx": ("color": "blue",      "label": "DOC"),
+  "rtf":  ("color": "blue-grey", "label": "RTF"),
+  "txt":  ("color": "blue-grey", "label": "TXT"),
+  // `md` would clash with the `.md-file-md` size modifier — use `.md-file-markdown`
+  // or `data-ext="md"`.
+  "markdown": ("color": "blue-grey", "label": "MD"),
+  "odt":  ("color": "blue",      "label": "ODT"),
+  // spreadsheets
+  "xls":  ("color": "green",     "label": "XLS"),
+  "xlsx": ("color": "green",     "label": "XLS"),
+  "csv":  ("color": "green",     "label": "CSV"),
+  "ods":  ("color": "green",     "label": "ODS"),
+  // presentations
+  "ppt":  ("color": "orange",    "label": "PPT"),
+  "pptx": ("color": "orange",    "label": "PPT"),
+  "odp":  ("color": "orange",    "label": "ODP"),
+  // code
+  "js":   ("color": "amber",     "label": "JS"),
+  "mjs":  ("color": "amber",     "label": "JS"),
+  "ts":   ("color": "blue",      "label": "TS"),
+  "tsx":  ("color": "blue",      "label": "TSX"),
+  "jsx":  ("color": "cyan",      "label": "JSX"),
+  "json": ("color": "amber",     "label": "JSON"),
+  "html": ("color": "deep-orange", "label": "HTML"),
+  "css":  ("color": "blue",      "label": "CSS"),
+  "scss": ("color": "pink",      "label": "SCSS"),
+  "sass": ("color": "pink",      "label": "SASS"),
+  "less": ("color": "indigo",    "label": "LESS"),
+  "vue":  ("color": "green",     "label": "VUE"),
+  "py":   ("color": "blue",      "label": "PY"),
+  "rb":   ("color": "red",       "label": "RB"),
+  "php":  ("color": "indigo",    "label": "PHP"),
+  "java": ("color": "red",       "label": "JAVA"),
+  "c":    ("color": "blue",      "label": "C"),
+  "cpp":  ("color": "blue",      "label": "CPP"),
+  "cs":   ("color": "purple",    "label": "CS"),
+  "go":   ("color": "cyan",      "label": "GO"),
+  "rs":   ("color": "deep-orange", "label": "RS"),
+  "swift":("color": "orange",    "label": "SWFT"),
+  "kt":   ("color": "purple",    "label": "KT"),
+  "sh":   ("color": "green",     "label": "SH"),
+  "sql":  ("color": "light-blue","label": "SQL"),
+  "yml":  ("color": "red",       "label": "YML"),
+  "yaml": ("color": "red",       "label": "YAML"),
+  "toml": ("color": "brown",     "label": "TOML"),
+  "xml":  ("color": "amber",     "label": "XML"),
+  // images
+  "png":  ("color": "purple",    "label": "PNG"),
+  "jpg":  ("color": "purple",    "label": "JPG"),
+  "jpeg": ("color": "purple",    "label": "JPG"),
+  "gif":  ("color": "purple",    "label": "GIF"),
+  "svg":  ("color": "amber",     "label": "SVG"),
+  "webp": ("color": "purple",    "label": "WEBP"),
+  "ico":  ("color": "blue",      "label": "ICO"),
+  // audio / video
+  "mp3":  ("color": "pink",      "label": "MP3"),
+  "wav":  ("color": "pink",      "label": "WAV"),
+  "flac": ("color": "pink",      "label": "FLAC"),
+  "ogg":  ("color": "pink",      "label": "OGG"),
+  "mp4":  ("color": "red",       "label": "MP4"),
+  "mov":  ("color": "red",       "label": "MOV"),
+  "mkv":  ("color": "red",       "label": "MKV"),
+  "webm": ("color": "red",       "label": "WEBM"),
+  // archives
+  "zip":  ("color": "brown",     "label": "ZIP"),
+  "rar":  ("color": "brown",     "label": "RAR"),
+  "tar":  ("color": "brown",     "label": "TAR"),
+  "gz":   ("color": "brown",     "label": "GZ"),
+  "7z":   ("color": "brown",     "label": "7Z"),
+  // misc
+  "env":  ("color": "amber",     "label": "ENV"),
+  "log":  ("color": "blue-grey", "label": "LOG"),
+  "lock": ("color": "grey",      "label": "LOCK"),
+  "exe":  ("color": "blue-grey", "label": "EXE"),
+  "iso":  ("color": "grey",      "label": "ISO"),
+  "ttf":  ("color": "grey",      "label": "TTF"),
+  "woff": ("color": "grey",      "label": "WOFF"),
+) !default;

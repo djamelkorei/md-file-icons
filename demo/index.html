@@ -26,6 +26,7 @@
         <span class="brand"><span class="brand-mark"></span> md-file-icons</span>
         <div class="nav-links">
           <a href="#playground">Playground</a>
+          <a href="#presets">Presets</a>
           <a href="#colors">Colors</a>
           <a href="#install">Install</a>
           <a href="https://github.com/djamelkorei/md-file-icons" target="_blank" rel="noopener">GitHub ↗</a>
@@ -97,6 +98,16 @@
         <div class="grid" id="color-grid"></div>
       </section>
 
+      <section id="presets" class="section">
+        <h2>File-type presets</h2>
+        <p class="section-sub">
+          <code>.md-file-&lt;ext&gt;</code> sets the color and, when the tag is left
+          empty, an auto label. Or use <code>data-ext</code> for any extension.
+          Click a tile to copy.
+        </p>
+        <div class="grid" id="preset-grid"></div>
+      </section>
+
       <section class="section">
         <h2>Four sizes</h2>
         <p class="section-sub"><code>.md-file-sm</code> · default · <code>.md-file-lg</code> · <code>.md-file-xl</code></p>
@@ -128,7 +139,15 @@
   href="https://unpkg.com/md-file-icons/dist/md-file-icons.css"
 /&gt;</code></pre>
             <h3>Markup</h3>
-            <pre class="snippet"><code>&lt;span class="md-file md-file-blue md-file-lg"&gt;PDF&lt;/span&gt;</code></pre>
+            <pre class="snippet"><code>&lt;span class="md-file md-file-pdf md-file-lg"&gt;&lt;/span&gt;
+&lt;span class="md-file" data-ext="rs"&gt;&lt;/span&gt;
+&lt;span class="md-file md-file-blue"&gt;PDF&lt;/span&gt;</code></pre>
+            <h3>Theme at runtime</h3>
+            <pre class="snippet"><code>:root {
+  --md-file-bg: #222;
+  --md-file-color: #eee;
+  --md-file-fold: rgba(0, 0, 0, 0.35);
+}</code></pre>
           </div>
         </div>
       </section>

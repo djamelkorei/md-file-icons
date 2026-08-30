@@ -5,61 +5,55 @@
  */
 
 @use "sass:map";
-@use "sass:color";
 @use "variables" as *;
 
+$_default: map.get($md-file-sizes, "md");
+$_default-font: map.get($md-file-font-sizes, "md");
+
 @mixin md-file-size($ratio, $font-size) {
+  --md-file-cut: #{$ratio * $md-file-fold-depth};
+
   margin-top: $ratio;
   width: $ratio * 3;
   height: $ratio * 3;
   font-size: $font-size;
-
-  &::before {
-    height: $ratio;
-    width: $ratio * 2;
-    top: -$ratio;
-  }
-
-  &::after {
-    top: -$ratio;
-    border-width: $ratio * 0.5;
-  }
 }
 
 .md-file {
+  // Runtime-themable API — override on `:root`, the element, or a wrapper.
+  --md-file-bg: #{$md-file-background};
+  --md-file-color: #{$md-file-color};
+  --md-file-fold: #{$md-file-fold};
+  --md-file-cut: #{$_default * $md-file-fold-depth};
+
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: $md-file-background;
-  color: $md-file-color;
+  color: var(--md-file-color);
   font-weight: $md-file-font-weight;
   line-height: 1;
-  box-shadow: $md-file-box-shadow;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    background-color: #4b5066;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    height: 0;
-    width: 0;
-    border: solid #3b4052;
-    border-top-color: transparent;
-    border-right-color: transparent;
-    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.125);
-  }
-
-  @include md-file-size(
-    map.get($md-file-sizes, "md"),
-    map.get($md-file-font-sizes, "md")
+  text-transform: uppercase;
+  background:
+    linear-gradient(
+        to top right,
+        var(--md-file-fold) 0,
+        var(--md-file-fold) 50%,
+        transparent 50%
+      )
+      top right / calc(var(--md-file-cut) * 2) calc(var(--md-file-cut) * 2)
+      no-repeat,
+    var(--md-file-bg);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--md-file-cut)) 0,
+    100% var(--md-file-cut),
+    100% 100%,
+    0 100%
   );
+  filter: drop-shadow(0.5px 1px 1px rgba(0, 0, 0, 0.55));
+
+  @include md-file-size($_default, $_default-font);
 
   @each $name, $ratio in $md-file-sizes {
     &.md-file-#{$name} {
@@ -67,18 +61,26 @@
     }
   }
 
+  // Colour modifiers
   @each $name, $value in $md-colors {
     &.md-file-#{$name} {
-      background-color: $value;
+      --md-file-bg: #{$value};
+    }
+  }
 
-      &::before {
-        background-color: $value;
-      }
+  // Extension presets — colour, plus an auto label when left empty
+  @each $ext, $spec in $md-file-extensions {
+    &.md-file-#{$ext} {
+      --md-file-bg: #{map.get($md-colors, map.get($spec, "color"))};
 
-      &::after {
-        border-left-color: color.adjust($value, $lightness: -15%);
-        border-bottom-color: color.adjust($value, $lightness: -15%);
+      &:empty::after {
+        content: "#{map.get($spec, "label")}";
       }
     }
+  }
+
+  // Zero-config label for any extension
+  &[data-ext]:empty::after {
+    content: attr(data-ext);
   }
 }

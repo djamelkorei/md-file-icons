@@ -66,6 +66,25 @@ COLORS.forEach((color) => {
   grid.append(tile);
 });
 
+/* ---------- file-type presets ---------- */
+const PRESETS = [
+  "pdf", "docx", "xlsx", "csv", "ppt", "txt", "markdown", "json", "js", "ts",
+  "tsx", "html", "css", "scss", "vue", "py", "rb", "go", "rs", "php", "java",
+  "sql", "yml", "sh", "png", "svg", "jpg", "gif", "mp3", "mp4", "zip", "env",
+];
+const presetGrid = document.getElementById("preset-grid");
+PRESETS.forEach((ext) => {
+  const cls = `md-file md-file-${ext}`;
+  const tile = el(
+    "button",
+    { className: "tile", title: `Copy "${cls}"` },
+    makeFile([`md-file-${ext}`, "md-file-lg"]),
+    el("span", { className: "tile-name", textContent: `.md-file-${ext}` }),
+  );
+  tile.addEventListener("click", () => copy(cls, tile.querySelector(".tile-name")));
+  presetGrid.append(tile);
+});
+
 /* ---------- sizes ---------- */
 const sizeRow = document.getElementById("size-row");
 [["sm", "SM"], ["", "MD"], ["lg", "LG"], ["xl", "XL"]].forEach(([size, label]) => {
