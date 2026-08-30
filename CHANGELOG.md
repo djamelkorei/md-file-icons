@@ -18,6 +18,10 @@ All notable changes to this project are documented here.
 
 ### Changed
 
+- Size scale expanded from 4 to 9 steps: `xs`, `sm`, `md` (default), `lg`, `xl`,
+  `2xl`, `3xl`, `4xl`, `5xl`. Height and label size now derive from the width via
+  `$md-file-aspect` / `$md-file-font-ratio`.
+- Icons are now a portrait document shape instead of a square.
 - The folded corner is now drawn with `clip-path` plus a gradient tint instead of
   border triangles; the small top-left tab has been dropped. The icon reads the
   same but the exact pixels differ.
@@ -31,6 +35,7 @@ All notable changes to this project are documented here.
 - `package.json` gained an `exports` map — deep imports other than `./css`,
   `./scss`, and `./package.json` are no longer resolvable.
 - SCSS partial renamed `_variable.scss` → `_variables.scss`.
+- `$md-file-font-sizes` token removed; the old size ratios changed.
 - `.md-file` markup that relied on the top-left tab or exact corner geometry will
   render slightly differently.
 

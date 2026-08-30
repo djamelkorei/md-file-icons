@@ -42,19 +42,23 @@ $md-colors: (
   "blue-grey": $md-blue-grey,
 ) !default;
 
+// Icon widths. Height and label size are derived from the width via the ratios
+// below, so a document shape (portrait) stays consistent across the scale.
+// "md" is the default (no size modifier needed).
 $md-file-sizes: (
-  "sm": 0.375rem,
-  "md": 0.5625rem,
-  "lg": 0.75rem,
-  "xl": 0.9375rem,
+  "xs": 0.875rem,
+  "sm": 1.125rem,
+  "md": 1.4rem,
+  "lg": 1.75rem,
+  "xl": 2.125rem,
+  "2xl": 2.625rem,
+  "3xl": 3.25rem,
+  "4xl": 4rem,
+  "5xl": 5rem,
 ) !default;
 
-$md-file-font-sizes: (
-  "sm": 0.375rem,
-  "md": 0.656rem,
-  "lg": 0.938rem,
-  "xl": 1.219rem,
-) !default;
+$md-file-aspect: 1.3 !default; // height / width — > 1 = portrait
+$md-file-font-ratio: 0.4 !default; // label font-size / width
 
 $md-file-color: #fff !default;
 $md-file-font-weight: 500 !default;
@@ -64,7 +68,7 @@ $md-file-box-shadow: 0.5px 1px 1px 0 rgba(0, 0, 0, 0.55) !default;
 // Folded top-right corner: tint of the flap and how deep the fold cuts in
 // (as a fraction of the icon's base ratio).
 $md-file-fold: rgba(0, 0, 0, 0.28) !default;
-$md-file-fold-depth: 0.6 !default;
+$md-file-fold-depth: 0.24 !default; // corner-fold size as a fraction of width
 
 // Extension presets — `.md-file-<ext>` sets the background colour and, when the
 // element is left empty, renders an auto label. Each entry:

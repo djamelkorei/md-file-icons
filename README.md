@@ -70,7 +70,11 @@ Every icon reads CSS custom properties, so you can retheme without recompiling:
 
 ### Sizes
 
-`.md-file-sm` · default · `.md-file-lg` · `.md-file-xl`
+`.md-file-xs` · `.md-file-sm` · `.md-file-md` (default) · `.md-file-lg` ·
+`.md-file-xl` · `.md-file-2xl` · `.md-file-3xl` · `.md-file-4xl` · `.md-file-5xl`
+
+Every icon is a portrait document shape; height and label size scale from the
+width. Tune the proportions with `$md-file-aspect` and `$md-file-font-ratio`.
 
 ### Colors
 

@@ -8,15 +8,13 @@
 @use "variables" as *;
 
 $_default: map.get($md-file-sizes, "md");
-$_default-font: map.get($md-file-font-sizes, "md");
 
-@mixin md-file-size($ratio, $font-size) {
-  --md-file-cut: #{$ratio * $md-file-fold-depth};
+@mixin md-file-size($width) {
+  --md-file-cut: #{$width * $md-file-fold-depth};
 
-  margin-top: $ratio;
-  width: $ratio * 3;
-  height: $ratio * 3;
-  font-size: $font-size;
+  width: $width;
+  height: $width * $md-file-aspect;
+  font-size: $width * $md-file-font-ratio;
 }
 
 .md-file {
@@ -33,6 +31,7 @@ $_default-font: map.get($md-file-font-sizes, "md");
   color: var(--md-file-color);
   font-weight: $md-file-font-weight;
   line-height: 1;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
   background:
     linear-gradient(
@@ -53,11 +52,11 @@ $_default-font: map.get($md-file-font-sizes, "md");
   );
   filter: drop-shadow(0.5px 1px 1px rgba(0, 0, 0, 0.55));
 
-  @include md-file-size($_default, $_default-font);
+  @include md-file-size($_default);
 
-  @each $name, $ratio in $md-file-sizes {
+  @each $name, $width in $md-file-sizes {
     &.md-file-#{$name} {
-      @include md-file-size($ratio, map.get($md-file-font-sizes, $name));
+      @include md-file-size($width);
     }
   }
 

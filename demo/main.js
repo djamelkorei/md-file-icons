@@ -87,13 +87,14 @@ PRESETS.forEach((ext) => {
 
 /* ---------- sizes ---------- */
 const sizeRow = document.getElementById("size-row");
-[["sm", "SM"], ["", "MD"], ["lg", "LG"], ["xl", "XL"]].forEach(([size, label]) => {
+const SIZES = ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl"];
+SIZES.forEach((size) => {
   sizeRow.append(
     el(
       "div",
       { className: "size-item" },
-      makeFile(["md-file-indigo", size && `md-file-${size}`].filter(Boolean), label),
-      el("code", { textContent: size ? `.md-file-${size}` : "default" }),
+      makeFile([`md-file-${size}`, "md-file-indigo"], size.toUpperCase()),
+      el("code", { textContent: `.md-file-${size}` }),
     ),
   );
 });

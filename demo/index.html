@@ -38,7 +38,7 @@
         <h1>File icons drawn<br />entirely in CSS.</h1>
         <p class="lead">
           No SVG sprites. No icon font. One <code>.md-file</code> class,
-          19 Material colors, 4 sizes, and any label or Font Awesome glyph inside.
+          ~75 file-type presets, 19 Material colors, 9 sizes, and runtime theming.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#install">Get started</a>
@@ -68,10 +68,15 @@
             <label>
               Size
               <select id="ctrl-size">
+                <option value="xs">xs</option>
                 <option value="sm">sm</option>
-                <option value="" selected>default</option>
+                <option value="" selected>md (default)</option>
                 <option value="lg">lg</option>
                 <option value="xl">xl</option>
+                <option value="2xl">2xl</option>
+                <option value="3xl">3xl</option>
+                <option value="4xl">4xl</option>
+                <option value="5xl">5xl</option>
               </select>
             </label>
 
@@ -109,8 +114,8 @@
       </section>
 
       <section class="section">
-        <h2>Four sizes</h2>
-        <p class="section-sub"><code>.md-file-sm</code> · default · <code>.md-file-lg</code> · <code>.md-file-xl</code></p>
+        <h2>Nine sizes</h2>
+        <p class="section-sub"><code>xs</code> · <code>sm</code> · <code>md</code> (default) · <code>lg</code> · <code>xl</code> · <code>2xl</code> … <code>5xl</code></p>
         <div class="size-row" id="size-row"></div>
       </section>
 
