@@ -1,6 +1,13 @@
-# Modules
+# Dependencies
 node_modules/
 
-# Editor directories and files
-.idea
-.vscode
+# Build output (demo site — generated in CI)
+dist-site/
+
+# Editor
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log
